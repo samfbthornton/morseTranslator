@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class MorseTranslator {
 
-	private final Map<String, String> MORSE_MAP;
+	public Map<String, String> MORSE_MAP;
 
 	public MorseTranslator() {
 		this.MORSE_MAP = new HashMap<String, String>();
@@ -38,5 +38,23 @@ public class MorseTranslator {
 		this.MORSE_MAP.put("z", "--..");
 		this.MORSE_MAP.put(" ", "/");
 
+		// System.out.println(this.MORSE_MAP);
+	}
+
+	public String morseTranslatorResult(String toBeTranslated) {
+		String[] input = toBeTranslated.split(" ");
+
+		for (Map.Entry<String, String> entry : MORSE_MAP.entrySet()) {
+			String alpha = entry.getKey();
+			String morse = entry.getValue();
+
+			if (input == alpha) {
+				System.out.println(input + " = " + morse);
+				return morse;
+
+			}
+
+		}
+		return "Invalid entry";
 	}
 }
